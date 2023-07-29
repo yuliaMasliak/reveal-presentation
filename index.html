@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Angular & RxJS</title>
+
+    <link
+      rel="stylesheet"
+      href="dist/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="dist/theme/black.css"
+    />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="plugin/highlight/monokai.css"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+<!-- Slide 1 -->
+        <section>
+          <h1>ANGULAR</h1>
+          <h3 style="color: pink; font-weight: 100;">Use of RxJS and Its Advantages</h3>
+          <div style="display: flex; align-items: center; justify-content: center;column-gap: 30px;"><div> <img data-src="./assets/ang.png" width="200"></div><div><img data-src="./assets/rxjs.png" width="200"></div></div>
+
+
+        </section>
+<!-- Slide 2 -->
+        <section data-transition="fade-in slide-out">
+          <h3>Angular's Reactive Nature</h3>
+          <ul>
+            <li>Angular is a framework developed by Google</li>
+            <li>"Reactivity" is one of the core principles</li>
+            <li>Angular relies on RxJS</li>
+          </ul>
+        </section>
+<!-- Slide 3 -->
+        <section data-transition="fade-in slide-out">
+          <h3>What is RxJS?</h3>
+          <ul>
+            <li>Library for reactive programming </li>
+            <li>Enables developers to work with asynchronous data streams</li>
+            <li
+              >Streams can represent events, HTTP requests, user interactions
+              etc.</li
+            >
+          </ul>
+        </section>
+<!-- Slide 4 -->
+        <section data-transition="fade-in slide-out">
+          <h3>How Angular Uses RxJS?</h3>
+          <ul>
+            <li
+              >RxJS observables and operators are used for:
+              <ul style="font-size: 2rem"
+                ><li>event handling</li>
+                <li>data manipoation</li>
+                <li>asynchronous operations</li></ul
+              >
+              <br />
+            </li>
+            <li>Enables developers to work with asynchronous data streams</li>
+            <img src="./assets/dog.png" alt="dog" style="display: block;margin: 0px auto;" width="300">
+          </ul>
+        </section>
+<!-- Slide 5 -->
+        <section data-transition="fade-in slide-out">
+          <h5>The Power of Angular's RxJS Integration</h5>
+          <ul>
+            <li
+              >Streamlined Asynchronous Operations
+              <br />
+              <div style="font-style: italic; color: pink; font-size: 2rem;"
+                >RxJS simplifies handling asynchronous tasks such as HTTP
+                requests and timers</div
+              >
+               <pre ><code data-trim data-noescape style="font-size: 1.2rem;">
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+export class ExampleService {
+  constructor(private http: HttpClient) {}
+
+  // Method that performs an HTTP GET request using RxJS
+  fetchData(): Observable<any> {
+    const apiUrl = 'https://api.example.com/data';
+
+  // RxJS makes the HTTP request and returns an observable of the response
+    return this.http.get<any>(apiUrl);
+  }
+}</code></pre>
+            </li>
+          </ul>
+        </section>
+<!-- Slide 6 -->
+        <section data-transition="fade-in slide-out">
+          <h5>The Power of Angular's RxJS Integration</h5>
+          <ul>
+            <li
+              >Streamlined Asynchronous Operations
+              <br />
+              <div style="font-style: italic; color: pink; font-size: 2rem;"
+                >The observable pattern makes it easy to subscribe to and react to changes in data</div
+              >
+               <pre><code data-trim data-noescape style="font-size: 1.2rem;">
+import { from, Observable } from 'rxjs';
+
+// Create an Observable out of a promise
+const data = from(fetch('/api/endpoint'));
+
+// Subscribe to begin listening for async result
+data.subscribe({
+  next(response) { console.log(response); },
+  error(err) { console.error('Error: ' + err); },
+  complete() { console.log('Completed'); }
+});</code></pre>
+            </li>
+          </ul>
+        </section>
+<!-- Slide 7 -->
+        <section data-transition="fade-in slide-out">
+          <img src="./assets/error.png" alt="robot" width="300" style="position: absolute;left: -300px;">
+          <h5>The Power of Angular's RxJS Integration</h5>
+
+          <ul>
+            <li style="font-style: italic; color: pink; font-size: 2rem;"
+              >Reactive UI Updates
+              <br>
+              <ul style="font-style: normal; color: white; font-size: 2rem;list-style: circle;"><li>Change detection mechanism works seamlessly with RxJS observables</li><li>Updates to observable data automatically trigger UI changes</li></ul>
+              <br />
+
+            </li>
+             <li style="font-style: italic; color: pink; font-size: 2rem;"
+              >Easier Error Handling
+              <br>
+              <ul style="font-style: normal; color: white; font-size: 2rem;list-style: circle;"><li>Error handling mechanisms within observables</li>  <li>Simplified the management of errors in asynchronous operations</li></ul>
+              <br />
+
+            </li>
+              <li style="font-style: italic; color: pink; font-size: 2rem;"
+              >Simplified Event Handling
+              <br>
+              <ul style="font-style: normal; color: white; font-size: 2rem;list-style: circle;"><li>Events can be transformed into observable streams</li></ul>
+              <br />
+
+            </li>
+          </ul>
+
+        </section>
+<!-- Slide 8 -->
+        <section data-transition="fade-in slide-out">
+          <h5>The Power of Angular's RxJS Integration</h5>
+          <ul>
+            <li style="font-style: italic; color: pink; font-size: 2rem;"
+              >Cross-Component Communication
+              <br>
+              <ul style="font-style: normal; color: white; font-size: 2rem;list-style: circle;"><li>Communication between components through observable streams</li><li>Components can react to changes and share data without direct dependencies</li></ul>
+              <br />
+
+            </li>
+             <li style="font-style: italic; color: pink; font-size: 2rem;"
+              >Composability and Reusability
+              <br>
+              <ul style="font-style: normal; color: white; font-size: 2rem;list-style: circle;"><li>Code reusability and composability</li>  <li>Complex asynchronous logic can be encapsulated into reusable functions</li></ul>
+              <br />
+
+            </li>
+
+          </ul>
+        </section>
+<!-- Slide 9 -->
+        <section data-transition="fade-in slide-out">
+          <h5>Summary</h5>
+          <ul>
+            <li style="font-style: italic; color: pink; font-size: 2rem;"
+              >Angular's integration of RxJS empowers developers to create reactive, efficient, and maintainable applications
+            </li>
+            <br>
+             <li style="font-style: italic; color: pink; font-size: 2rem;"
+              >The streamlined handling of asynchronous operations, UI updates, and error management simplifies the development process
+            </li>
+              <br>
+             <li style="font-style: italic; color: pink; font-size: 2rem;"
+              >The observables-based approach enhances cross-component communication and promotes code reusability
+            </li>
+          </ul>
+            <img src="./assets/event.png" alt="keyboard" width="300" style="position: absolute;">
+        </section>
+<!-- Slide 9 -->
+        <section data-transition="fade-in slide-out">
+          <h3>Q&A</h3>
+          <br>
+          <div>
+You can leave your questions and comments under this video.<br><br>
+Thank you for your attention! <br><br>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+      });
+    </script>
+    [Slide 1: Title] Angular's Use of RxJS and Its Advantages [Slide 2:
+    Introduction] Angular's Reactive Nature Angular is a popular front-end
+    framework developed and maintained by Google. One of its core principles is
+    "reactivity," which enables the creation of dynamic and responsive
+    applications. To achieve this, Angular relies on the power of RxJS, the
+    Reactive Extensions for JavaScript. [Slide 3: What is RxJS?] Understanding
+    RxJS RxJS is a library for reactive programming in JavaScript. It extends
+    the capabilities of JavaScript, enabling developers to work with
+    asynchronous data streams. These streams can represent events, HTTP
+    requests, user interactions, and more. [Slide 4: RxJS Integration in
+    Angular] How Angular Uses RxJS Angular incorporates RxJS throughout its
+    ecosystem to handle various aspects of an application's behavior. RxJS
+    observables and operators are used for event handling, data manipulation,
+    and asynchronous operations. Services, components, and directives often
+    utilize RxJS to manage data streams and user interactions. [Slide 5:
+    Advantages of Using RxJS in Angular] The Power of Angular's RxJS Integration
+    1. Streamlined Asynchronous Operations RxJS simplifies handling asynchronous
+    tasks such as HTTP requests and timers. The observable pattern makes it easy
+    to subscribe to and react to changes in data. 2. Reactive UI Updates
+    Angular's change detection mechanism works seamlessly with RxJS observables.
+    Updates to observable data automatically trigger UI changes, keeping the
+    interface in sync with the data. [Slide 6: Advantages of Using RxJS in
+    Angular (Contd.)] The Power of Angular's RxJS Integration 3. Error Handling
+    Made Easier RxJS provides error handling mechanisms within observables. This
+    simplifies the management of errors in asynchronous operations, making
+    debugging more straightforward. 4. Simplified Event Handling Events like
+    mouse clicks or key presses can be easily transformed into observable
+    streams. This enables the use of powerful operators to handle complex event
+    scenarios. [Slide 7: Advantages of Using RxJS in Angular (Contd.)] The Power
+    of Angular's RxJS Integration 5. Cross-Component Communication RxJS
+    facilitates communication between components through observable streams.
+    Components can react to changes and share data without direct dependencies.
+    6. Composability and Reusability RxJS operators promote code reusability and
+    composability. Complex asynchronous logic can be encapsulated into reusable
+    functions. [Slide 8: Conclusion] In Summary Angular's integration of RxJS
+    empowers developers to create reactive, efficient, and maintainable
+    applications. The streamlined handling of asynchronous operations, UI
+    updates, and error management simplifies the development process. The
+    observables-based approach enhances cross-component communication and
+    promotes code reusability. [Slide 9: Q&A] Questions & Answers Thank you for
+    your attention! I'm now open to any questions you may have.
+  </body>
+</html>
