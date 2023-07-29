@@ -236,7 +236,7 @@ const source3 = of(true, false);
 merge(source1, source2, source3).subscribe(value => console.log(value));
 // Output: 'A', 1, true, 'B', 2, false, 'C', 3</code></pre>
         </section>
-        <!-- Slide 12 -->
+<!-- Slide 12 -->
         <section data-transition="fade-in slide-out">
           <h5>Popular RxJS Operators</h5>
          <div style="color: pink;">SwitchMap Operator
@@ -249,7 +249,7 @@ merge(source1, source2, source3).subscribe(value => console.log(value));
 import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
-const source = of(1, 2, 3, 4, 5);
+const source = of(1, 2, 3);
 
 source.pipe(
   switchMap(value => of(`Processed: ${value}`))
@@ -257,10 +257,7 @@ source.pipe(
 
 // Output:
 // Processed: 1
-// Processed: 2
-// Processed: 3
-// Processed: 4
-// Processed: 5</code></pre>
+// Processed: 2</code></pre>
         </section>
 <!-- Slide 13 -->
         <section data-transition="fade-in slide-out">
@@ -279,7 +276,7 @@ source.pipe(
             </li>
             <br>
              <li style="font-style: italic; color: pink; font-size: 2rem;"
-              >RxJS operators significantly enhances the capabilities of Angular applications. By combining operators, developers can build complex reactive systems with ease
+              >RxJS operators significantly enhance the capabilities of Angular applications. By combining operators, developers can build complex reactive systems with ease
             </li>
           </ul>
             <img src="./assets/event.png" alt="keyboard" width="300" style="position: absolute;">
