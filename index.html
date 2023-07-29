@@ -184,6 +184,86 @@ data.subscribe({
         </section>
 <!-- Slide 9 -->
         <section data-transition="fade-in slide-out">
+          <h5>Popular RxJS Operators</h5>
+         <div style="color: pink;">Map Operator</div>
+         <br>
+              <ul style="font-style: normal; color: white; font-size: 2rem;list-style: circle;"><li>Description: The map operator transforms each item emitted by the source observable by applying a given function
+              </li><li>Example: Transforming numbers to their squares</li></ul>
+
+           <pre><code data-trim data-noescape style="font-size: 1.2rem;">
+import { from } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+const numbers = from([1, 2, 3, 4, 5]);
+numbers.pipe(
+  map(num => num * num)
+).subscribe(result => console.log(result)); // Output: 1, 4, 9, 16, 25</code></pre>
+        </section>
+<!-- Slide 10 -->
+        <section data-transition="fade-in slide-out">
+          <h5>Popular RxJS Operators</h5>
+         <div style="color: pink;">Filter Operator
+</div>
+         <br>
+              <ul style="font-style: normal; color: white; font-size: 2rem;list-style: circle;"><li>Description: The filter operator selectively emits items from the source observable that meet a specific condition
+              </li><li>Example: Filtering even numbers</li></ul>
+
+           <pre><code data-trim data-noescape style="font-size: 1.2rem;">
+import { from } from 'rxjs';
+import { filter } from 'rxjs/operators';
+
+const numbers = from([1, 2, 3, 4, 5]);
+numbers.pipe(
+  filter(num => num % 2 === 0)
+).subscribe(result => console.log(result)); // Output: 2, 4</code></pre>
+        </section>
+<!-- Slide 11 -->
+        <section data-transition="fade-in slide-out">
+          <h5>Popular RxJS Operators</h5>
+         <div style="color: pink;">Merge Operator
+</div>
+         <br>
+              <ul style="font-style: normal; color: white; font-size: 2rem;list-style: circle;"><li>Description: The merge operator combines multiple observables into one, emitting values from all of them concurrently
+              </li><li>Merging two data streams</li></ul>
+
+           <pre><code data-trim data-noescape style="font-size: 1.2rem;">
+import { merge, of } from 'rxjs';
+
+const source1 = of('A', 'B', 'C');
+const source2 = of(1, 2, 3);
+const source3 = of(true, false);
+
+merge(source1, source2, source3).subscribe(value => console.log(value));
+// Output: 'A', 1, true, 'B', 2, false, 'C', 3</code></pre>
+        </section>
+        <!-- Slide 12 -->
+        <section data-transition="fade-in slide-out">
+          <h5>Popular RxJS Operators</h5>
+         <div style="color: pink;">SwitchMap Operator
+</div>
+         <br>
+              <ul style="font-style: normal; color: white; font-size: 2rem;list-style: circle;"><li>Description: The switchMap operator maps each value emitted by the source observable to another observable and cancels any previous inner observable
+              </li><li>Handling search requests efficiently</li></ul>
+
+           <pre><code data-trim data-noescape style="font-size: 1.2rem;">
+import { of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+
+const source = of(1, 2, 3, 4, 5);
+
+source.pipe(
+  switchMap(value => of(`Processed: ${value}`))
+).subscribe(result => console.log(result));
+
+// Output:
+// Processed: 1
+// Processed: 2
+// Processed: 3
+// Processed: 4
+// Processed: 5</code></pre>
+        </section>
+<!-- Slide 13 -->
+        <section data-transition="fade-in slide-out">
           <h5>Summary</h5>
           <ul>
             <li style="font-style: italic; color: pink; font-size: 2rem;"
@@ -197,10 +277,13 @@ data.subscribe({
              <li style="font-style: italic; color: pink; font-size: 2rem;"
               >The observables-based approach enhances cross-component communication and promotes code reusability
             </li>
+             <li style="font-style: italic; color: pink; font-size: 2rem;"
+              >RxJS operators significantly enhances the capabilities of Angular applications. By combining operators, developers can build complex reactive systems with ease
+            </li>
           </ul>
             <img src="./assets/event.png" alt="keyboard" width="300" style="position: absolute;">
         </section>
-<!-- Slide 9 -->
+<!-- Slide 14 -->
         <section data-transition="fade-in slide-out">
           <h3>Q&A</h3>
           <br>
@@ -227,46 +310,6 @@ Thank you for your attention! <br><br>
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
       });
     </script>
-    [Slide 1: Title] Angular's Use of RxJS and Its Advantages [Slide 2:
-    Introduction] Angular's Reactive Nature Angular is a popular front-end
-    framework developed and maintained by Google. One of its core principles is
-    "reactivity," which enables the creation of dynamic and responsive
-    applications. To achieve this, Angular relies on the power of RxJS, the
-    Reactive Extensions for JavaScript. [Slide 3: What is RxJS?] Understanding
-    RxJS RxJS is a library for reactive programming in JavaScript. It extends
-    the capabilities of JavaScript, enabling developers to work with
-    asynchronous data streams. These streams can represent events, HTTP
-    requests, user interactions, and more. [Slide 4: RxJS Integration in
-    Angular] How Angular Uses RxJS Angular incorporates RxJS throughout its
-    ecosystem to handle various aspects of an application's behavior. RxJS
-    observables and operators are used for event handling, data manipulation,
-    and asynchronous operations. Services, components, and directives often
-    utilize RxJS to manage data streams and user interactions. [Slide 5:
-    Advantages of Using RxJS in Angular] The Power of Angular's RxJS Integration
-    1. Streamlined Asynchronous Operations RxJS simplifies handling asynchronous
-    tasks such as HTTP requests and timers. The observable pattern makes it easy
-    to subscribe to and react to changes in data. 2. Reactive UI Updates
-    Angular's change detection mechanism works seamlessly with RxJS observables.
-    Updates to observable data automatically trigger UI changes, keeping the
-    interface in sync with the data. [Slide 6: Advantages of Using RxJS in
-    Angular (Contd.)] The Power of Angular's RxJS Integration 3. Error Handling
-    Made Easier RxJS provides error handling mechanisms within observables. This
-    simplifies the management of errors in asynchronous operations, making
-    debugging more straightforward. 4. Simplified Event Handling Events like
-    mouse clicks or key presses can be easily transformed into observable
-    streams. This enables the use of powerful operators to handle complex event
-    scenarios. [Slide 7: Advantages of Using RxJS in Angular (Contd.)] The Power
-    of Angular's RxJS Integration 5. Cross-Component Communication RxJS
-    facilitates communication between components through observable streams.
-    Components can react to changes and share data without direct dependencies.
-    6. Composability and Reusability RxJS operators promote code reusability and
-    composability. Complex asynchronous logic can be encapsulated into reusable
-    functions. [Slide 8: Conclusion] In Summary Angular's integration of RxJS
-    empowers developers to create reactive, efficient, and maintainable
-    applications. The streamlined handling of asynchronous operations, UI
-    updates, and error management simplifies the development process. The
-    observables-based approach enhances cross-component communication and
-    promotes code reusability. [Slide 9: Q&A] Questions & Answers Thank you for
-    your attention! I'm now open to any questions you may have.
+
   </body>
 </html>
